@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <h1>Team Generator</h1>
+            <div class="nav-actions">
+                <button id="themeToggle" class="theme-toggle">
+                    <span class="material-icons">dark_mode</span>
+                </button>
+                <button id="newGameBtn" class="primary-btn" style="display: none;">New Game</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Profile Selection View -->
+        <section id="profileView" class="view-section active">
+            <div class="content-grid">
+                <!-- Left Column -->
+                <div class="left-column">
+                    <!-- Profile Management Section -->
+                    <div class="section-card">
+                        <div class="card-header">
+                            <h2>Manage Profiles</h2>
+                            <button id="toggleProfileForm" class="secondary-btn">Add New</button>
+                        </div>
+                        <div id="profileFormContainer" style="display: none;">
+                            <form id="playerForm">
+                                <input type="text" placeholder="Player Name" required>
+                                <div class="rating-inputs">
+                                    <input type="number" placeholder="Offense (1-10)" min="1" max="10" required>
+                                    <input type="number" placeholder="Defense (1-10)" min="1" max="10" required>
+                                </div>
+                                <button type="submit" class="primary-btn">Add Player</button>
+                            </form>
+                        </div>
+                        <div class="profiles-list">
+                            <!-- Profiles will be listed here with edit/delete options -->
+                        </div>
+                    </div>
+
+                    <!-- Profile Statistics -->
+                    <div class="section-card">
+                        <h2>Profile Statistics</h2>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <span class="material-icons">groups</span>
+                                <h3>Total Profiles</h3>
+                                <p id="totalProfiles">0</p>
+                            </div>
+                            <div class="stat-card">
+                                <span class="material-icons">trending_up</span>
+                                <h3>Average Offense</h3>
+                                <p id="avgOffense">0.0</p>
+                            </div>
+                            <div class="stat-card">
+                                <span class="material-icons">shield</span>
+                                <h3>Average Defense</h3>
+                                <p id="avgDefense">0.0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="right-column">
+                    <div class="section-card">
+                        <div class="card-header">
+                            <h2>Available Profiles</h2>
+                            <div class="profile-actions">
+                                <input type="text" id="profileSearch" placeholder="Search profiles...">
+                            </div>
+                        </div>
+                        <div class="profiles-grid">
+                            <!-- Profiles will be listed here -->
+                        </div>
+                        <div class="generate-section">
+                            <button type="button" id="generateTeamsBtn" class="primary-btn full-width" disabled>
+                                Generate Teams (<span id="selectedCount">0</span> selected)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game View -->
+        <section id="gameView" class="view-section">
+            <div class="content-grid">
+                <div class="section-card full-width">
+                    <h2>Generated Teams</h2>
+                    <div class="teams-grid">
+                        <!-- Teams will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Team Balancer Pro. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html> 
